@@ -14,16 +14,11 @@ client = commands.Bot(prefix)
 @client.event
 async def on_ready():
     print('We are logged in as User {}'.format(client.user.name))
-    await client.change_presence(activity=discord.Game('JackBOT  +help'), status=discord.Status.online)#change 'JackBOT +help' to change the custom status of the bot
+    await client.change_presence(activity=discord.Game('Your-Bot-Name +help'), status=discord.Status.online)#change 'JackBOT +help' to change the custom status of the bot
 
-@client.command(brief="Prints a Pasta.")
-async def pasta(ctx):
-    await ctx.channel.purge(limit=1)
-    await ctx.send('This was a Copy-Pasta!')
-    
 @client.command(brief="Pings the Bot to test Latency.")
 async def ping(ctx):
-    await ctx.send(f'Ping hat {round(client.latency * 1000)}ms gedauert')
+    await ctx.send(f'Ping completed in {round(client.latency * 1000)}ms!')
 
 @client.command(aliases=['8ball', 'testif', 'test', 'eightball'],brief="Calls the 8ball to question it.")
 async def _8ball(ctx, *, question):
@@ -128,9 +123,6 @@ async def timer(ctx, *,timeInput):
     except:
         await ctx.send(f"Alright, first you gotta let me know how I\'m gonna time **{timeInput}**....")
         
-@client.command(brief="Blames the User you Tag")
-async def blame(ctx, *, content):
-    await ctx.send(content + ' is a Shame for this Server. He/She should not Exist!')
 
 client.run('YOURTOKEN') #type in your bot token here
 
